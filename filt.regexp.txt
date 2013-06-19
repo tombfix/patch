@@ -1,0 +1,5 @@
+affiliate
+analytics.*\.js$
+analyzer
+banners?[./]
+blogparts
