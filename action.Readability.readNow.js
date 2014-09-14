@@ -1,10 +1,10 @@
-Tombloo.Service.actions.register({
+Actions.register({
 	name : 'Readability - Read Now',
 	type : 'context',
 	icon : Readability.ICON,
-	execute : function(ctx){
-		Readability.queue(ctx.href, true).addCallback(function(res){
-			ctx.window.location.href = res.channel.URI.spec;
+	execute : ctx => {
+		Readability.queue(ctx.href, true).addCallback(({response : doc}) => {
+			ctx.browser.loadURI(doc.URL, createURI(ctx.href));
 		});
-	},
+	}
 }, '----');
